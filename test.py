@@ -34,6 +34,17 @@ def system_equation(coeffs, conts):
     return {"X": answer[0], "Y": answer[1]}
 
 def normal_distrubutions_samples(mean, stan_dev, sample):
+    """
+    Generates a number of samples from a normal distribution.
+    
+    Args:
+        mean: The mean of the normal distribution.
+        stan_dev: The standard deviation of the normal distribution.
+        sample: The number of samples to generate.
+    
+    Returns:
+        The generated samples as a numpy array.
+    """
     return np.random.normal(loc = mean, scale = stan_dev, size = sample)
 
 def test_should_return_quad_linear_function():
