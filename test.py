@@ -33,7 +33,8 @@ def system_equation(coeffs, conts):
     answer = solve(coeffs, conts)
     return {"X": answer[0], "Y": answer[1]}
 
-
+def normal_distrubutions_samples(mean, stan_dev, sample):
+    return np.random.normal(loc = mean, scale = stan_dev, size = sample)
 
 def test_should_return_quad_linear_function():
     def linear(x):
