@@ -1,4 +1,5 @@
 from scipy.integrate import quad
+from scipy.linalg import solve
 import pytest
 from pytest import approx
 
@@ -26,4 +27,13 @@ def test_should_return_quad_linear_function():
 
     assert answer == pytest.approx(test, rel = 1e-5)
 
-def 
+def test_should_return_answer_of_system_equation():
+    coeffs = [[2, 1], [1, -1]]
+    conts = [7,1]
+
+    answer = system_equation(coeffs, conts)
+    test = solve(coeffs, conts)
+
+    assert answer["X"] == pytest.approx(test[0], rel= 1e-5)
+    assert answer["Y"] == pytest.approx(test[1], rel = 1e-5)
+    
