@@ -33,6 +33,8 @@ def system_equation(coeffs, conts):
     answer = solve(coeffs, conts)
     return {"X": answer[0], "Y": answer[1]}
 
+
+
 def test_should_return_quad_linear_function():
     def linear(x):
         return 2 * x + 3
@@ -60,4 +62,4 @@ def test_should_return_samples_from_normal_distrubutions():
     samples = normal_distrubutions_samples(mean, stan_dev, sample)
     assert len(samples) == sample
     assert pytest.approx(np.mean(samples), rel = 0.1) == mean
-    assert pytest.approx(np.stan_dev(samples), rel = 0.1) == stan_dev
+    assert pytest.approx(np.std(samples), rel = 0.1) == stan_dev
