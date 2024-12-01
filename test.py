@@ -18,6 +18,10 @@ def quad_linear(x, beg, end):
     answer, _ = quad(x, beg, end)
     return answer
 
+def system_equation(coeffs, conts):
+    answer = solve(coeffs, conts)
+    return {"X": answer[0], "Y": answer[1]}
+
 def test_should_return_quad_linear_function():
     def linear(x):
         return 2 * x + 3
@@ -36,4 +40,3 @@ def test_should_return_answer_of_system_equation():
 
     assert answer["X"] == pytest.approx(test[0], rel= 1e-5)
     assert answer["Y"] == pytest.approx(test[1], rel = 1e-5)
-    
