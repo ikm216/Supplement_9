@@ -2,6 +2,7 @@ from scipy.integrate import quad
 from scipy.linalg import solve
 import pytest
 from pytest import approx
+import numpy as np
 
 def quad_linear(x, beg, end):
     """
@@ -50,3 +51,13 @@ def test_should_return_answer_of_system_equation():
 
     assert answer["X"] == pytest.approx(test[0], rel= 1e-5)
     assert answer["Y"] == pytest.approx(test[1], rel = 1e-5)
+
+def test_should_return_samples_from_normal_distrubutions():
+    mean = 5.0
+    stan_dev = 1.0
+    sample = 1000
+
+    samples = normal_distrubutions_samples(mean, stan_dev, sample)
+    assert len(samples) == sample
+    assert pytest.approx(np.mean(samples), rel = 0.1) == mean
+    assert pytest.approx(np.stan_dev(samples), rel = 0.1) == stan_dev
