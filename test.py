@@ -19,6 +19,16 @@ def quad_linear(x, beg, end):
     return answer
 
 def system_equation(coeffs, conts):
+    """
+    Solves a system of two linear equations.
+    
+    Args:
+        coeffs: The coefficients of the equations.
+        conts: The constants of the equations.
+    
+    Returns:
+        Fields "X" and "Y" containing the answers.
+    """
     answer = solve(coeffs, conts)
     return {"X": answer[0], "Y": answer[1]}
 
