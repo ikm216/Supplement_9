@@ -2,7 +2,9 @@ from scipy.integrate import quad
 import pytest
 from pytest import approx
 
-
+def quad_linear(x, beg, end):
+    answer, _ = quad(x, beg, end)
+    return answer
 
 def test_should_return_quad_linear_function():
     def linear(x):
